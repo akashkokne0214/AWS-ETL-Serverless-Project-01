@@ -1,4 +1,4 @@
-🚀 AWS Serverless ETL Pipeline: JSON to Parquet Data Lake
+*** 🚀 AWS Serverless ETL Pipeline: JSON to Parquet Data Lake
 
 This project demonstrates an end-to-end Serverless ETL Pipeline on AWS using Amazon S3, AWS Lambda, AWS Glue, and Amazon Athena. The pipeline automatically processes raw JSON order data, transforms it into a flattened tabular format, stores it as Parquet files in a Data Lake, catalogs the data using AWS Glue, and enables SQL-based analytics through Athena.
 
