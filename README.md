@@ -3,7 +3,7 @@
 This project demonstrates an end-to-end Serverless ETL Pipeline on AWS using Amazon S3, AWS Lambda, AWS Glue, and Amazon Athena. The pipeline automatically processes raw JSON order data, transforms it into a flattened tabular format, stores it as Parquet files in a Data Lake, catalogs the data using AWS Glue, and enables SQL-based analytics through Athena.
 
 ## 📌 Architecture
-<img width="1415" height="792" alt="Screenshot" src="https://github.com/akashkokne0214/AWS-ETL-Serverless-Project-01/blob/main/AWS%20ETL%20pipeline%20flow%20diagram.png"/>
+<img width="1415" height="792" alt="Screenshot" src="https://github.com/akashkokne0214/AWS-ETL-Serverless-Project-01/blob/main/ETL%20architecture.png"/>
 
 ## 🏗️ Project Overview
 
@@ -22,7 +22,7 @@ Raw order data is uploaded in JSON format to an S3 bucket.
 3. **Converts data into a Pandas DataFrame**
 4. **Saves transformed data in Parquet format**
 5. **Uploads Parquet files to a Data Lake folder**
-6. ** Automatically triggers a Glue Crawler**
+6. **Automatically triggers a Glue Crawler**
 
 ## Analytics
 
@@ -42,13 +42,21 @@ AWS Glue creates metadata tables in the Data Catalog, allowing Athena to query t
 ## 📂 S3 Bucket Structure
 
 **project-etl-serverless-01**
+
 │
+
 ├── orders_json_incoming/
+
 │   ├── orders_sample_1.json
+
 │   ├── orders_sample_2.json
+
 │
+
 └── orders_parquet_datalake/
+
     ├── orders_ETL_20260615_101500.parquet
+    
     ├── orders_ETL_20260615_102030.parquet
 
 
@@ -69,15 +77,17 @@ Step 3: **Lambda Transformation**
 **The Lambda function:**
 
 1. **Reads JSON file**
-2. Extracts customer details**
-3. Extracts product details**
-4. Flattens nested structures**
-5. Converts data into tabular format**
+2. **Extracts customer details**
+3. **Extracts product details**
+4. **Flattens nested structures**
+5. **Converts data into tabular format**
 
 ## Example Output:
 
 order_id	customer_name	product_name	quantity
+
 1001	          John Doe	    Laptop	   1
+
 1001	          John Doe	     Mouse	   2
 
 Step 4: **Convert to Parquet**
@@ -110,13 +120,20 @@ Run SQL queries directly on S3 data.
 **Example:**
 
 SELECT
+    
     category,
+    
     COUNT(*) AS total_orders,
+    
     SUM(total_amount) AS total_sales
-FROM orders
-GROUP BY category
-ORDER BY total_sales DESC;
-💡 Why Parquet?
+    
+    FROM orders
+
+    GROUP BY category
+
+    ORDER BY total_sales DESC;
+
+## 💡 Why Parquet?
 
 Parquet is a columnar storage format optimized for analytics workloads.
 
@@ -136,8 +153,11 @@ Athena charges based on data scanned. Since Parquet stores only required columns
 
 ## 📊 Sample Athena Output
 Category	Total Orders	Total Sales
+
 Electronics	    120	         24,500
+
 Clothing	     95	          2,700
+
 Books	             80	          7,300
 
 ## 🔐 IAM Permissions Required
@@ -168,13 +188,14 @@ Books	             80	          7,300
 
 ## 📷 Architecture Diagram
 ![Architecture](images/aws-serverless-etl-pipeline.png)
-<img width="1415" height="792" alt="Screenshot" src="https://github.com/akashkokne0214/AWS-ETL-Serverless-Project-01/blob/main/AWS%20ETL%20pipeline%20flow%20diagram.png"/>
+<img width="1415" height="792" alt="Screenshot" src="https://github.com/akashkokne0214/AWS-ETL-Serverless-Project-01/blob/main/ETL%20architecture.png"/>
 
 ## 👨‍💻 Author
 
 Akash Kokne
 
 🔹 Data Analyst | Power BI | SQL | Python | AWS Cloud Practitioner
+
 🔹 Exploring Data Engineering & Cloud Analytics
 
 📫 Connect with me on LinkedIn and feel free to share feedback or suggestions!
